@@ -1,0 +1,187 @@
+/* =========================================
+   OURDAPUR MAIN STYLES
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* --- THEME COLORS (Orange/Cooking) --- */
+    --primary-color: #f97316;   /* Orange */
+    --primary-dark: #c2410c;    /* Dark Orange */
+    --primary-light: #ffedd5;   /* Pale Orange */
+    
+    --gradient-primary: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    
+    --white: #ffffff;
+    --gray-50: #fff7ed;  /* Warm background */
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-600: #4b5563;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+
+    /* --- DIMENSIONS --- */
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body {
+    background-color: var(--gray-50);
+    color: var(--gray-800);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gray-200);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0;
+}
+
+.navbar-content { display: flex; justify-content: space-between; align-items: center; }
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+}
+.logo span { color: var(--primary-color); }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-link { text-decoration: none; color: var(--gray-600); font-weight: 500; transition: color 0.2s; }
+.nav-link:hover, .nav-link.active { color: var(--primary-color); }
+
+.auth-buttons { display: flex; gap: 1rem; }
+
+/* --- HERO SECTION --- */
+.hero {
+    padding: 5rem 0;
+    text-align: center;
+    background: radial-gradient(circle at top right, var(--primary-light), transparent 40%);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--gray-900);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--gray-600);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+/* --- RECIPE GRID --- */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.recipe-body { padding: 1.5rem; }
+
+/* --- FOOTER --- */
+.footer {
+    background: var(--gray-900);
+    color: var(--white);
+    padding: 4rem 0 2rem;
+    margin-top: 6rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .nav-links, .auth-buttons { display: none; }
+    .hero h1 { font-size: 2.5rem; }
+}
+/* Mobile Menu Button (Hamburger) */
+.mobile-menu-btn {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--gray-800);
+    cursor: pointer;
+}
+
+/* Mobile Dropdown Container */
+.mobile-menu {
+    display: none; /* Hidden by default */
+    background: white;
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.mobile-menu.show {
+    display: block; /* Shown when JS toggles it */
+}
+
+.mobile-link {
+    display: block;
+    padding: 0.75rem 0;
+    text-decoration: none;
+    color: var(--gray-800);
+    border-bottom: 1px solid var(--gray-100);
+}
+
+/* Show hamburger on mobile */
+@media (max-width: 768px) {
+    .mobile-menu-btn { display: block; }
+}
+/* --- UTILITY HELPERS (Makes old Tailwind code work) --- */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-bold { font-weight: 700; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-4xl { font-size: 2.5rem; }
+
+.w-full { width: 100%; }
+.block { display: block; }
+.hidden { display: none; }
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mt-4 { margin-top: 1rem; }
+.p-6 { padding: 1.5rem; }
+.p-2 { padding: 0.5rem; }
+
+.text-white { color: white; }
+.text-red-600 { color: #dc2626; }
+.bg-white { background-color: white; }
+.rounded-lg { border-radius: var(--radius-lg); }
+.shadow-md { box-shadow: var(--shadow-md); }
