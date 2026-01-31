@@ -1,0 +1,416 @@
+/* =========================================
+   OURDAPUR MAIN STYLES (UPDATED)
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #f97316;   /* Orange */
+    --primary-dark: #c2410c;    /* Dark Orange */
+    --primary-light: #ffedd5;   /* Pale Orange */
+    --gradient-primary: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    
+    --white: #ffffff;
+    --gray-50: #fff7ed;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-600: #4b5563;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body {
+    background-color: var(--gray-50);
+    color: var(--gray-800);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- LAYOUT FIXES --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+/* Fix navbar overlap */
+main.container {
+    flex: 1;
+    padding-top: 2rem; 
+    padding-bottom: 4rem;
+}
+
+/* --- NAVBAR FIXES --- */
+.navbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    text-decoration: none;
+}
+.logo span { color: var(--primary-color); }
+
+/* Desktop Navigation */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--gray-600);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Mobile Menu Button (Hidden on Desktop) */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--gray-800);
+    cursor: pointer;
+}
+
+/* --- HERO SECTION (Welcome Page) --- */
+.hero-section {
+    text-align: center;
+    padding: 4rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--gray-900);
+    margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--gray-600);
+    margin-bottom: 2.5rem;
+}
+
+.search-bar-lg {
+    display: flex;
+    background: var(--white);
+    padding: 0.5rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-md);
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.search-bar-lg input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    background: transparent;
+}
+
+/* --- CUISINE ICONS --- */
+.cuisine-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+.cuisine-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.cuisine-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.cuisine-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.cuisine-name { font-weight: 600; color: var(--gray-900); }
+
+/* --- RECIPE GRID --- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.recipe-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.recipe-img-container {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.recipe-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recipe-content { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.recipe-meta { font-size: 0.85rem; color: var(--gray-600); margin-bottom: 0.5rem; display: flex; gap: 1rem; }
+.recipe-title { font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem; }
+.recipe-desc { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 1.5rem; flex: 1; }
+
+/* --- SIDEBAR LAYOUT (For Index Page) --- */
+.page-with-sidebar {
+    display: flex;
+    gap: 2.5rem;
+    padding-top: 1rem;
+}
+
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.filter-group { margin-bottom: 2rem; }
+.filter-title { font-weight: 700; color: var(--gray-900); margin-bottom: 1rem; font-size: 1.1rem; }
+.filter-label { display: block; margin-bottom: 0.5rem; color: var(--gray-600); cursor: pointer; }
+.filter-label input { margin-right: 0.5rem; accent-color: var(--primary-color); }
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .desktop-only { display: none !important; }
+    .mobile-menu-btn { display: block; }
+    
+    /* Mobile Menu Drawer */
+    .mobile-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        border-bottom: 1px solid var(--gray-200);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    .mobile-menu.show {
+        display: flex; /* Show when JS toggles class */
+    }
+
+    .mobile-link {
+        text-decoration: none;
+        color: var(--gray-800);
+        font-weight: 500;
+        padding: 0.5rem 0;
+        display: block;
+        border-bottom: 1px solid var(--gray-100);
+    }
+
+    .hero-title { font-size: 2.5rem; }
+    .page-with-sidebar { flex-direction: column; }
+    .sidebar { width: 100%; margin-bottom: 2rem; }
+    .search-bar-lg { flex-direction: column; padding: 1rem; gap: 0.5rem; }
+}
+/* --- FILTER PILLS --- */
+.filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Hide actual checkbox but keep it functional */
+.pill-label input[type="checkbox"] {
+    display: none;
+}
+
+/* The visual button */
+.pill-label span {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Hover state */
+.pill-label span:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* CHECKED State (Active) */
+.pill-label input:checked + span {
+    background: var(--primary-color); /* Orange background */
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* --- DIET CIRCLE CHECKBOXES --- */
+.custom-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+.custom-check input {
+    accent-color: var(--primary-color); /* Makes the checkbox orange */
+    width: 18px;
+    height: 18px;
+}
+/* --- DROPDOWN MENU STYLES --- */
+.dropdown {
+    position: relative;
+}
+
+/* The Menu Box (Hidden by default) */
+.dropdown-menu {
+    display: none; /* Hide it */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    list-style: none;
+    border: 1px solid var(--gray-100);
+}
+
+/* Show menu on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Dropdown Links */
+.dropdown-menu li {
+    display: block; /* Stack vertically */
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--gray-800);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+    background: var(--gray-50);
+    color: var(--primary-color);
+    padding-left: 1.75rem; /* Slight slide effect */
+}
+
+/* Add a small arrow to the parent link */
+.dropdown-toggle::after {
+    content: '▼';
+    font-size: 0.7em;
+    margin-left: 6px;
+    vertical-align: middle;
+    opacity: 0.5;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
